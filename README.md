@@ -58,3 +58,55 @@ a{
 @include main-a(navy, white);
 }
 ```
+## EXTEND USAGE
+
+IT IS MORE USEFUL THEN MIXIN
+### SCSS file:
+```
+
+%button-format {
+    padding: 10px 20px;
+    border-radius: 15px;
+    color: black;
+}
+  
+.toolbar-button {
+    @extend %button-format;
+    background-color: lightpink;
+  
+    &:hover {
+        background-color: rgb(155, 106, 114);
+    }
+}
+  
+.status-bar-button {
+    @extend %button-format;
+    background-color: lightblue;
+  
+    &:hover {
+        background-color: blue;
+    }
+}
+```
+### CSS EXPORT
+```
+.status-bar-button, .toolbar-button {
+  padding: 10px 20px;
+  border-radius: 15px;
+  color: black;
+}
+
+.toolbar-button {
+  background-color: lightpink;
+}
+.toolbar-button:hover {
+  background-color: #9b6a72;
+}
+
+.status-bar-button {
+  background-color: lightblue;
+}
+.status-bar-button:hover {
+  background-color: blue;
+}
+```
